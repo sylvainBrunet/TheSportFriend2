@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TheSportFriend</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_detail">Detail</string>
+    <string name="title_home">Classement</string>
+    <string name="title_dashboard">Résultat</string>
+    <string name="title_notifications">Calendrier</string>
+</resources>
