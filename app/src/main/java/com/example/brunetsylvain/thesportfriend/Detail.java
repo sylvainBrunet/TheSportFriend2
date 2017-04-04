@@ -4,12 +4,23 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class Detail extends AppCompatActivity {
 
     private TextView mTextMessage;
+
+    private String[] quotes;
+    private Quote newQuote;
+    private  ArrayAdapter<String> listAdapter;
+    private ArrayList<String> listQuotes;
+    ArrayList<Quote> arrayListQuote = new ArrayList<>();
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -19,6 +30,9 @@ public class Detail extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
+                    //Affichage ListView Classement Ligue 1
+                    loadQuotes();
+                    showQuotes(arrayListQuote);
                     return true;
                 case R.id.navigation_dashboard:
                     mTextMessage.setText(R.string.title_dashboard);
@@ -42,4 +56,33 @@ public class Detail extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+    //Affichage ListView Classement Ligue 1
+    protected void addQuote(String quote) {
+        newQuote = new Quote(quote);
+        arrayListQuote.add(newQuote);
+    }
+
+    protected void loadQuotes() {
+        quotes = getResources().getStringArray(R.array.ligue1);
+        for (String item: quotes) {
+            addQuote(item);
+        }
+    }
+
+    protected ArrayList<String> getAllQuotes(ArrayList<Quote> quotes) {
+        listQuotes = new ArrayList<>();
+        for (Quote quote: quotes) {
+            listQuotes.add(quote.getStrQuote());
+        }
+        return listQuotes;
+    }
+
+    protected void showQuotes(ArrayList<Quote> quote) {
+        Log.e("TAG", "showQuotes: " + quote );
+        ListView lv = (ListView) findViewById(R.id.lv);
+        listAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, getAllQuotes(quote));
+        Log.e("TAG", "adapter: " + listAdapter );
+        //lv.setAdapter(listAdapter2);
+    }
 }

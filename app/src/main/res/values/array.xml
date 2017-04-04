@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ligue1">
+        <item> 1 - Monaco </item>
+        <item> 2 - PSG </item>
+        <item> 3 - Nice </item>
+        <item> 4 - Lyon les pd </item>
+        <item> 5 - Marseille </item>
+        <item> 6 - Bordeaux </item>
+        <item> 7 - Saint-Etienne </item>
+        <item> 8 - Guingamp </item>
+        <item> 9 - Nantes </item>
+        <item> 10 - Toulouse </item>
+        <item> 11 - Rennes </item>
+        <item> 12 - Angers </item>
+        <item> 13 - Lille </item>
+        <item> 14 - Metz </item>
+        <item> 15 - Montpellier </item>
+        <item> 16 - Caen </item>
+        <item> 17 - Dijon </item>
+        <item> 18 - Nancy </item>
+        <item> 19 - Lorient </item>
+        <item> 20 - Bastia </item>
+    </string-array>
+</resources>
