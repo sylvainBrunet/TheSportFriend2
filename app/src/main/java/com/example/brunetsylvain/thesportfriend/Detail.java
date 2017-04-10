@@ -28,6 +28,12 @@ public class Detail extends AppCompatActivity {
     private ArrayList<String> listQuotesResult;
     ArrayList<Quote> arrayListQuoteResult = new ArrayList<>();
 
+    private String[] quotesCalendrier;
+    private Quote newQuoteCalendrier;
+    private ArrayAdapter<String> listAdapterCalendrier;
+    private ArrayList<String> listQuotesCalendrier;
+    ArrayList<Quote> arrayListQuoteCalendrier = new ArrayList<>();
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -43,6 +49,9 @@ public class Detail extends AppCompatActivity {
                         if(!arrayListQuoteResult.isEmpty()){
                             clearResult();
                         }
+                        if(!arrayListQuoteCalendrier.isEmpty()){
+                            clearCalendrier();
+                        }
                         clear();
                         showQuotes(arrayListQuote);
                     }
@@ -56,13 +65,28 @@ public class Detail extends AppCompatActivity {
                         if(!arrayListQuote.isEmpty()){
                             clear();
                         }
+                        if(!arrayListQuoteCalendrier.isEmpty()){
+                            clearCalendrier();
+                        }
                         clearResult();
                         showQuotesResult(arrayListQuoteResult);
                     }
                     return true;
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
-                    clear();
+                    if(arrayListQuoteCalendrier.isEmpty() ){
+                        loadQuotesCalendrier();
+                        showQuotesCalendrier(arrayListQuoteCalendrier);
+                    } else {
+                        if(!arrayListQuote.isEmpty()){
+                            clear();
+                        }
+                        if(!arrayListQuoteResult.isEmpty()){
+                            clearResult();
+                        }
+                        clearCalendrier();
+                        showQuotesCalendrier(arrayListQuoteCalendrier);
+                    }
                     return true;
             }
             return false;
@@ -126,7 +150,7 @@ public class Detail extends AppCompatActivity {
     protected void loadQuotesResult() {
         quotesResult = getResources().getStringArray(R.array.resultat);
         for (String item: quotesResult) {
-            addQuote(item);
+            addQuoteResult(item);
         }
     }
 
@@ -151,5 +175,42 @@ public class Detail extends AppCompatActivity {
     protected void clearResult()
     {
         listAdapterResult.clear();
+    }
+
+
+    //Affichage List View Calendrier Ligue 1
+    protected void addQuoteCalendrier(String quote) {
+        newQuoteCalendrier = new Quote(quote);
+        arrayListQuoteCalendrier.add(newQuoteCalendrier);
+    }
+
+    protected void loadQuotesCalendrier() {
+        quotesCalendrier = getResources().getStringArray(R.array.calendrier);
+        for (String item: quotesCalendrier) {
+            addQuoteCalendrier(item);
+        }
+    }
+
+    protected ArrayList<String> getAllQuotesCalendrier(ArrayList<Quote> quotes) {
+        listQuotesCalendrier = new ArrayList<>();
+        for (Quote quote: quotes) {
+            listQuotesCalendrier.add(quote.getStrQuote());
+        }
+        return listQuotesCalendrier;
+    }
+
+    protected void showQuotesCalendrier(ArrayList<Quote> quote) {
+        ListView lv = (ListView) findViewById(R.id.lv);
+        listAdapterCalendrier = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, getAllQuotesCalendrier(quote));
+        if(lv.getCount() > 0) {
+            clearCalendrier();
+        }
+        lv.setAdapter(listAdapterCalendrier);
+    }
+
+    protected void clearCalendrier()
+    {
+        listAdapterCalendrier.clear();
     }
 }

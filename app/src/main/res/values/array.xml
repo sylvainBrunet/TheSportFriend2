@@ -46,4 +46,28 @@
         <item> Metz Reporter PSG </item>
         <item> Monaco Reporter Saint-Etienne </item>
     </string-array>
+    <string-array name="calendrier">
+        <item> --- Journée 33 --- </item>
+        <item> Angers - PSG </item>
+        <item> Monaco - Dijon </item>
+        <item> Nice - Nancy </item>
+        <item> Rennes - Lille </item>
+        <item> Metz - Caen </item>
+        <item> Montpellier - Lorient </item>
+        <item> Guingamp - Toulouse </item>
+        <item> Nantes - Bordeaux </item>
+        <item> Bastia - Lyon </item>
+        <item> Marseille - Saint-Etienne </item>
+        <item> --- Journée 34 --- </item>
+        <item> Lorient - Metz </item>
+        <item> Saint-Etienne - Rennes </item>
+        <item> Dijon - Angers </item>
+        <item> Toulouse - Nice </item>
+        <item> Caen - Nantes </item>
+        <item> Bordeaux - Bastia </item>
+        <item> Lille - Guingamp </item>
+        <item> Nancy - Marseille </item>
+        <item> PSG - Montpellier </item>
+        <item> Lyon - Monaco </item>
+    </string-array>
 </resources>
