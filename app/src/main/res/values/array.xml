@@ -1,25 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="ligue1">
+    <string-array name="classement">
         <item> 1 - Monaco </item>
         <item> 2 - PSG </item>
         <item> 3 - Nice </item>
         <item> 4 - Lyon les pd </item>
-        <item> 5 - Marseille </item>
-        <item> 6 - Bordeaux </item>
+        <item> 5 - Bordeaux </item>
+        <item> 6 - Marseille </item>
         <item> 7 - Saint-Etienne </item>
-        <item> 8 - Guingamp </item>
-        <item> 9 - Nantes </item>
-        <item> 10 - Toulouse </item>
+        <item> 8 - Nantes </item>
+        <item> 9 - Toulouse </item>
+        <item> 10 - Guingamp </item>
         <item> 11 - Rennes </item>
         <item> 12 - Angers </item>
         <item> 13 - Lille </item>
-        <item> 14 - Metz </item>
-        <item> 15 - Montpellier </item>
+        <item> 14 - Montpellier </item>
+        <item> 15 - Metz </item>
         <item> 16 - Caen </item>
-        <item> 17 - Dijon </item>
-        <item> 18 - Nancy </item>
-        <item> 19 - Lorient </item>
+        <item> 17 - Nancy </item>
+        <item> 18 - Lorient </item>
+        <item> 19 - Dijon </item>
         <item> 20 - Bastia </item>
+    </string-array>
+    <string-array name="resultat">
+        <item> --- Journée 32 --- </item>
+        <item> PSG 4 - 0 Guingamp </item>
+        <item> Saint-Etienne 1 - 1 Nantes</item>
+        <item> Toulouse 0 - 0 Marseille </item>
+        <item> Dijon 1 - 2 Bastia </item>
+        <item> Lyon 1 - 4 Lorient </item>
+        <item> Bordeaux 3 - 0 Metz </item>
+        <item> Caen 0 - 2 Montpellier </item>
+        <item> Nancy 3 - 0 Rennes </item>
+        <item> Angers 0 - 1 Monaco </item>
+        <item> Lille 1 - 2 Nice </item>
+        <item> --- Journée 31 --- </item>
+        <item> Nice 2 - 1 Bordeaux </item>
+        <item> Montpellier 0 - 1 Toulouse</item>
+        <item> Lorient 1 - 0 Caen </item>
+        <item> Nantes 2 - 1 Angers </item>
+        <item> Rennes 1 - 1 Lyon </item>
+        <item> Bastia 0 - 1 Lille </item>
+        <item> Marseille 1 - 1 Dijon </item>
+        <item> Guingamp 1 - 0 Nancy </item>
+        <item> Metz Reporter PSG </item>
+        <item> Monaco Reporter Saint-Etienne </item>
     </string-array>
 </resources>

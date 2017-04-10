@@ -22,6 +22,12 @@ public class Detail extends AppCompatActivity {
     private ArrayList<String> listQuotes;
     ArrayList<Quote> arrayListQuote = new ArrayList<>();
 
+    private String[] quotesResult;
+    private Quote newQuoteResult;
+    private ArrayAdapter<String> listAdapterResult;
+    private ArrayList<String> listQuotesResult;
+    ArrayList<Quote> arrayListQuoteResult = new ArrayList<>();
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -30,14 +36,33 @@ public class Detail extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
-                    loadQuotes();
-                    showQuotes(arrayListQuote);
+                    if(arrayListQuote.isEmpty()){
+                        loadQuotes();
+                        showQuotes(arrayListQuote);
+                    } else {
+                        if(!arrayListQuoteResult.isEmpty()){
+                            clearResult();
+                        }
+                        clear();
+                        showQuotes(arrayListQuote);
+                    }
                     return true;
                 case R.id.navigation_dashboard:
                     mTextMessage.setText(R.string.title_dashboard);
+                    if(arrayListQuoteResult.isEmpty() ){
+                        loadQuotesResult();
+                        showQuotesResult(arrayListQuoteResult);
+                    } else {
+                        if(!arrayListQuote.isEmpty()){
+                            clear();
+                        }
+                        clearResult();
+                        showQuotesResult(arrayListQuoteResult);
+                    }
                     return true;
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
+                    clear();
                     return true;
             }
             return false;
@@ -62,7 +87,7 @@ public class Detail extends AppCompatActivity {
     }
 
     protected void loadQuotes() {
-        quotes = getResources().getStringArray(R.array.ligue1);
+        quotes = getResources().getStringArray(R.array.classement);
         for (String item: quotes) {
             addQuote(item);
         }
@@ -80,11 +105,51 @@ public class Detail extends AppCompatActivity {
         ListView lv = (ListView) findViewById(R.id.lv);
         listAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, getAllQuotes(quote));
+        if(lv.getCount() > 0) {
+            clear();
+        }
         lv.setAdapter(listAdapter);
     }
 
     protected void clear()
     {
         listAdapter.clear();
+    }
+
+
+    //Affichage ListView Résultat Ligue 1
+    protected void addQuoteResult(String quote) {
+        newQuoteResult = new Quote(quote);
+        arrayListQuoteResult.add(newQuoteResult);
+    }
+
+    protected void loadQuotesResult() {
+        quotesResult = getResources().getStringArray(R.array.resultat);
+        for (String item: quotesResult) {
+            addQuote(item);
+        }
+    }
+
+    protected ArrayList<String> getAllQuotesResult(ArrayList<Quote> quotes) {
+        listQuotesResult = new ArrayList<>();
+        for (Quote quote: quotes) {
+            listQuotesResult.add(quote.getStrQuote());
+        }
+        return listQuotesResult;
+    }
+
+    protected void showQuotesResult(ArrayList<Quote> quote) {
+        ListView lv = (ListView) findViewById(R.id.lv);
+        listAdapterResult = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, getAllQuotesResult(quote));
+        if(lv.getCount() > 0) {
+            clearResult();
+        }
+        lv.setAdapter(listAdapterResult);
+    }
+
+    protected void clearResult()
+    {
+        listAdapterResult.clear();
     }
 }
