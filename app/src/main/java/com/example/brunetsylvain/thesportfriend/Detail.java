@@ -30,13 +30,27 @@ public class Detail extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
-                    loadQuotes();
-                    showQuotes(arrayListQuote);
+
+                    if(arrayListQuote.isEmpty()){
+                        loadQuotes();
+                        showQuotes(arrayListQuote);
+                    }else{
+
+                        Log.d("TAG", "onNavigationItemSelected: message ");
+                        clear();
+
+                        showQuotes(arrayListQuote);
+
+                    }
+
+
                     return true;
                 case R.id.navigation_dashboard:
+                    clear();
                     mTextMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
+                    clear();
                     mTextMessage.setText(R.string.title_notifications);
                     return true;
             }
