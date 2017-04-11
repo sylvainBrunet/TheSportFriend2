@@ -34,17 +34,20 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener  {
 
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
+    private Button quitter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -237,6 +240,12 @@ public class MainActivity extends AppCompatActivity
         listDataChild.put(listDataHeader.get(3), Angletterre);
         listDataChild.put(listDataHeader.get(4), Allemagne);
         listDataChild.put(listDataHeader.get(4), Roumanie);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
 
